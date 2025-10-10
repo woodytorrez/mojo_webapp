@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row rounded pt-3">
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="/images/development04.png?t=<%= time %>" class="card-img-top" alt="Conkal">
+                <div class="card-body">
+                    <h5 class="card-title">Conkal</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/admin" class="btn btn-sm btn-success w-100">View Details<i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="/images/development03.png?t=<%= time %>" class="card-img-top" alt="Playa De Carmen">
+                <div class="card-body">
+                    <h5 class="card-title">Playa De Carmen</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/admin" class="btn btn-sm btn-success w-100">View Details<i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="/images/development02.png?t=<%= time %>" class="card-img-top" alt="Tulum">
+                <div class="card-body">
+                    <h5 class="card-title">Tulum</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/admin" class="btn btn-sm btn-success w-100">View Details<i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="/images/development01.png?t=<%= time %>" class="card-img-top" alt="San Miguel de Allende">
+                <div class="card-body">
+                    <h5 class="card-title">San Miguel de Allende</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/admin" class="btn btn-sm btn-success w-100">View Details<i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

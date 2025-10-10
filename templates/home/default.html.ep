@@ -1,0 +1,23 @@
+<%
+    my $flashMessage     = flash('message');
+    my $flashMessageType = flash('messageType');
+%>
+<form autocomplete="off" class="form-signin" id="form-signin" name="form-signin" action="/login/admin" method="post">
+    <center><img class="mb-4" src="/images/logo.png" alt="" width="96" height="122"></center>
+    <div class="form-floating">
+        <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com">
+        <label for="username">Email address</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <label for="password">Password</label>
+    </div>
+    <button class="btn btn-primary w-100 py-3" type="submit">Sign in</button>
+
+    % if ($flashMessage && $flashMessageType) {
+        <div class="mt-2 mb-3 alert alert-<%= $flashMessageType %>" role="alert">
+            <%= $flashMessage %>
+        </div>
+    % }
+    <p class="mt-2 mb-3 text-body-secondary text-center">&copy; 2025</p>
+</form>
