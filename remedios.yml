@@ -2,6 +2,7 @@
 secrets:
   - __SECRET_01__
   - __SECRET_02__
+title: __TITLE__
 database:
   username: __DB_USERNAME__
   password: __DB_PASSWORD__
