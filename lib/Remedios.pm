@@ -76,14 +76,13 @@ sub setupRoutes {
     my $admin = $r->under('/admin' => sub {
         my $self = shift;
 
-        return 1;
-#        return 1 if $self->CanAccessPage;
+        return 1 if $self->CanAccessPage;
 
-#        $self->flash(message     => 'Cannot access...');
-#        $self->flash(messageType => 'error');
-#        $self->redirect_to('/');
+        $self->flash(message     => 'Sorry, you cannot access...');
+        $self->flash(messageType => 'danger');
+        $self->redirect_to('/');
 
-#        return undef;
+        return undef;
     });
 
     $admin->get('/')      ->to(controller => 'Admin::Home',   action => 'default', layout => 'admin');
