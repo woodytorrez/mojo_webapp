@@ -6,11 +6,6 @@ use DBI;
 sub startup {
     my $self = shift;
 
-    $self->defaults(
-        title  => '__TITLE__',
-        layout => 'default'
-    );
-
     $self->setupConfig();
     $self->setupHelpers();
     $self->setupRoutes();
@@ -24,6 +19,11 @@ sub setupConfig {
 
     $self->plugin('NotYAMLConfig');
     $self->secrets($self->config->{secrets});
+    $self->defaults(
+        title  => $self->config->{title},
+        layout => 'default'
+    );
+
 }
 
 # =============================================================================
@@ -46,16 +46,17 @@ sub setupHelpers {
         return $dbh;
     });
 
-    $self->helper(isLoggedIn => sub {
+    $self->helper(IsLoggedIn => sub {
         my $self = shift;
 
-        return defined($self->session->{isLoggedIn}) && $self->session->{isLoggedIn} == 1 && defined($self->session->{userId}) && $self->session->{userId} > 0;
+        return defined($self->session->{loggedIn}) && $self->session->{loggedIn} == 1 && defined($self->session->{userId}) && $self->session->{userId} > 0;
     });
 
-    $self->helper(CanAccess => sub {
+    $self->helper(CanAccessPage => sub {
         my $self = shift;
 
-        return $self->isLoggedIn && $self->req->url =~ m/^\/admin/;
+        return    ($self->req->url =~ m/^\/admin/ && $self->IsLoggedIn && $self->session->{userPersona} eq 'admin')
+               || ($self->req->url =~ m/^\/user/  && $self->IsLoggedIn && $self->session->{userPersona} eq 'user');
     });
 }
 
@@ -76,7 +77,7 @@ sub setupRoutes {
         my $self = shift;
 
         return 1;
-#        return 1 if $self->CanAccess;
+#        return 1 if $self->CanAccessPage;
 
 #        $self->flash(message     => 'Cannot access...');
 #        $self->flash(messageType => 'error');

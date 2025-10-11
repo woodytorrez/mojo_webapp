@@ -16,7 +16,7 @@ sub admin {
     my $user     = $userDao->getUserByUsername($username);
 
     if ($user && $user->passwordMatches($password)) {
-        $self->session(isLoggedIn  => 1);
+        $self->session(loggedIn    => 1);
         $self->session(userId      => $user->id());
         $self->session(userPersona => $user->persona());
         $dbh->disconnect();
