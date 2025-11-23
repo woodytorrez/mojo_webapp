@@ -11,6 +11,9 @@ sub default {
     delete $self->session->{loggedIn};
     delete $self->session->{userId};
     delete $self->session->{userPersona};
+
+    # just to make sure...
+    $self->session(expires => 1);
     
     return $self->redirectWithSuccessMessage('/', 'You have been logged out...');
 }
