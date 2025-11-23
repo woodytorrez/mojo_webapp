@@ -17,8 +17,10 @@ sub startup {
 sub setupConfig {
     my $self = shift;
 
+    # 86400 seconds = 24 hours
     $self->plugin('NotYAMLConfig');
     $self->secrets($self->config->{secrets});
+    $self->sessions->default_expiration(86400);
     $self->defaults(
         title  => $self->config->{title},
         layout => 'default'
